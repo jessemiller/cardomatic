@@ -11,7 +11,7 @@
 @implementation PlayingCard
 
 - (NSString *)contents {
-    return [[self rankStrings][self.rank] stringByAppendingString:self.suit];
+    return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
 }
 
 - (void)setSuit:(NSString *)suit {
@@ -26,7 +26,7 @@
     }
 }
 
-- (NSArray *)rankStrings {
++ (NSArray *)rankStrings {
     return @[@"A",
              @"2",
              @"3",
