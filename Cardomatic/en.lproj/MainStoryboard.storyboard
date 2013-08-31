@@ -274,11 +274,20 @@
                                     <action selector="deal" destination="2" eventType="touchUpInside" id="Gli-5z-ZyM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" text="Score: 0 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKF-Ww-kuV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="s4A-4f-07q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kKH-fN-9b8" firstAttribute="bottom" secondItem="wYM-rj-Q7L" secondAttribute="bottom" type="default" id="0ON-nn-ERC"/>
                             <constraint firstItem="Ydy-9q-k25" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="95" id="3TE-Hp-Vm8"/>
+                            <constraint firstAttribute="bottom" secondItem="cKF-Ww-kuV" secondAttribute="bottom" constant="72" id="5xR-zb-1cq"/>
                             <constraint firstItem="cx1-CI-3sF" firstAttribute="trailing" secondItem="sxs-i5-cJw" secondAttribute="trailing" type="default" id="6Zl-aa-ijh"/>
                             <constraint firstItem="I6Y-oq-otN" firstAttribute="leading" secondItem="6z1-GZ-Erd" secondAttribute="leading" type="default" id="6b2-LD-zNQ"/>
                             <constraint firstItem="kKH-fN-9b8" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7rM-Ju-6Wl"/>
@@ -329,6 +338,7 @@
                             <constraint firstItem="qRb-4b-aHh" firstAttribute="bottom" secondItem="uim-U0-F72" secondAttribute="bottom" type="default" id="rHV-ko-EWE"/>
                             <constraint firstItem="wYM-rj-Q7L" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rpW-hU-WPj"/>
                             <constraint firstItem="Ydy-9q-k25" firstAttribute="trailing" secondItem="zQI-hf-aDI" secondAttribute="trailing" type="default" id="sa1-zE-VOT"/>
+                            <constraint firstAttribute="trailing" secondItem="cKF-Ww-kuV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vEF-Qr-DDP"/>
                             <constraint firstItem="cx1-CI-3sF" firstAttribute="top" secondItem="6z1-GZ-Erd" secondAttribute="top" type="default" id="wfx-Vc-er3"/>
                             <constraint firstItem="BvZ-s8-A6A" firstAttribute="bottom" secondItem="sxs-i5-cJw" secondAttribute="bottom" type="default" id="xUx-GT-EYH"/>
                             <constraint firstItem="yfg-gn-Giv" firstAttribute="top" secondItem="rjX-cH-aky" secondAttribute="top" type="default" id="xdW-YS-gDx"/>
@@ -338,6 +348,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scoreLabel" destination="cKF-Ww-kuV" id="JOJ-fh-er1"/>
                         <outletCollection property="cards" destination="uNP-Jf-hzH" id="zb7-pC-7sK"/>
                         <outletCollection property="cards" destination="Ydy-9q-k25" id="vGi-AK-6GS"/>
                         <outletCollection property="cards" destination="wYM-rj-Q7L" id="R2h-Y1-3G2"/>
@@ -365,6 +376,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardomaticViewController.h"/>
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cards" candidateClass="UIButton"/>
             </relationships>
         </class>

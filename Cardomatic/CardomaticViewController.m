@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cards;
 @property (strong, nonatomic) CardMatchingGame *game;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
@@ -47,6 +48,8 @@
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
         cardButton.selected = card.faceUp;
         cardButton.enabled = !card.unplayable;
+        cardButton.alpha = card.unplayable ? 0.3 : 1.0;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     }    
 }
 
