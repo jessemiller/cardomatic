@@ -9,31 +9,45 @@
 #import "CardomaticViewController.h"
 #import "Deck.h"
 #import "PlayingCardDeck.h"
+#import "CardMatchingGame.h"
 
 @interface CardomaticViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cards;
-@property (strong, nonatomic) Deck *deck;
+@property (strong, nonatomic) CardMatchingGame *game;
 
 @end
 
 @implementation CardomaticViewController
 
 - (IBAction)flipCard:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
+    [self.game flipCardAtIndex:[self.cards indexOfObject:sender]];
+    [self updateUI];
 }
 
-- (Deck *)deck {
-    if (!_deck) _deck = [[PlayingCardDeck alloc] init];
-    return _deck;
+- (IBAction)deal {
+    self.game = nil;
+    [self updateUI];
+}
+
+- (CardMatchingGame *)game {
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cards.count usingDeck:[[PlayingCardDeck alloc] init]];
+    return _game;
 }
 
 - (void)setCards:(NSArray *)cards {
     _cards = cards;
-    for (UIButton *cardButton in cards) {
-        Card *card = [self.deck drawRandomCard];
+    [self updateUI];
+}
+
+- (void)updateUI {
+    for (UIButton *cardButton in self.cards) {
+        Card *card = [self.game cardAtIndex:[self.cards indexOfObject:cardButton]];
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
-    }
+        [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        cardButton.selected = card.faceUp;
+        cardButton.enabled = !card.unplayable;
+    }    
 }
 
 @end

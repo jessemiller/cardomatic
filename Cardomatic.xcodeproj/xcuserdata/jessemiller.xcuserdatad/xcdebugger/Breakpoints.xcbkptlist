@@ -8,25 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Cardomatic/PlayingCard.m"
-         timestampString = "399169503.01773"
+         timestampString = "399656974.473612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "15"
-         endingLineNumber = "15"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
          landmarkName = "-contents"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Cardomatic/CardomaticViewController.m"
-         timestampString = "399169324.927968"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
-         landmarkName = "-setCards:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -40,19 +27,6 @@
          startingLineNumber = "24"
          endingLineNumber = "24"
          landmarkName = "-drawRandomCard"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Cardomatic/CardomaticViewController.m"
-         timestampString = "399169324.927968"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
-         landmarkName = "-setCards:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
