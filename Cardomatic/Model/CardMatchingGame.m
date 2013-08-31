@@ -11,6 +11,7 @@
 @interface CardMatchingGame()
 @property (strong, nonatomic) NSMutableArray *cards;
 @property (nonatomic) int score;
+@property (strong, nonatomic) NSString *lastStatus;
 @end
 
 @implementation CardMatchingGame
@@ -34,18 +35,23 @@
 - (void)flipCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
+    self.lastStatus = nil;
     if (!card.unplayable) {
         if (!card.faceUp) {
+            self.lastStatus = [NSString stringWithFormat:@"You flipped a %@", card.contents];
             for (Card *otherCard in self.cards) {
                 if (otherCard.faceUp && !otherCard.unplayable) {
                     int matchScore = [card match:@[otherCard]];
                     if (matchScore) {
                         otherCard.unplayable = true;
                         card.unplayable = true;
-                        self.score += matchScore * MATCH_BONUS;
+                        int scoreAddition = matchScore * MATCH_BONUS;
+                        self.score += scoreAddition;
+                        self.lastStatus = [NSString stringWithFormat:@"You matched %@ and %@ for %d points", card.contents, otherCard.contents, scoreAddition];
                     } else {
                         otherCard.faceUp = false;
                         self.score -= MISMATCH_PENALTY;
+                        self.lastStatus = [NSString stringWithFormat:@"%@ and %@ don't match. %d point penalty.", card.contents, otherCard.contents, MISMATCH_PENALTY];
                     }
                 }
             }
