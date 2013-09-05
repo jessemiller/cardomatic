@@ -308,6 +308,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="deal" destination="jKJ-eY-PBd" eventType="touchUpInside" id="m6u-XN-nJc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -397,6 +400,32 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="8is-Ra-WMP"/>
+                    <connections>
+                        <outletCollection property="cardButtons" destination="r2s-5R-Z3B" id="82B-i3-E69"/>
+                        <outletCollection property="cardButtons" destination="z55-jo-uof" id="d43-Ct-9QZ"/>
+                        <outletCollection property="cardButtons" destination="rth-q8-ZJn" id="9FK-h3-5x8"/>
+                        <outletCollection property="cardButtons" destination="9s1-pW-aVG" id="m1V-G6-LwI"/>
+                        <outletCollection property="cardButtons" destination="0SO-as-U7U" id="J0D-mq-9Tl"/>
+                        <outletCollection property="cardButtons" destination="wuz-ys-t3J" id="qNu-Go-o3n"/>
+                        <outletCollection property="cardButtons" destination="OrY-xt-b27" id="FnH-cV-moh"/>
+                        <outletCollection property="cardButtons" destination="AFe-o1-2Sp" id="smi-Ge-ial"/>
+                        <outletCollection property="cardButtons" destination="32d-ZD-GEI" id="cOE-10-qlE"/>
+                        <outletCollection property="cardButtons" destination="ZFn-4p-KcU" id="9sX-aP-sx2"/>
+                        <outletCollection property="cardButtons" destination="0gW-2s-g05" id="HNW-c3-Q5c"/>
+                        <outletCollection property="cardButtons" destination="xDH-Ul-Czm" id="Hrf-U9-2gF"/>
+                        <outletCollection property="cardButtons" destination="k7Q-Nm-Vpe" id="3Rf-gc-xWR"/>
+                        <outletCollection property="cardButtons" destination="Taf-S8-BDB" id="iil-dq-3a7"/>
+                        <outletCollection property="cardButtons" destination="r8C-fe-pw8" id="PSH-fX-ePa"/>
+                        <outletCollection property="cardButtons" destination="oNU-YK-FkZ" id="VGA-K2-awH"/>
+                        <outletCollection property="cardButtons" destination="01G-qH-czw" id="mSk-ka-aU3"/>
+                        <outletCollection property="cardButtons" destination="QS7-vH-2uO" id="RcK-vy-BMQ"/>
+                        <outletCollection property="cardButtons" destination="Wka-sP-Dwn" id="FPO-A7-eDm"/>
+                        <outletCollection property="cardButtons" destination="foD-jR-rmy" id="90R-kq-2tn"/>
+                        <outletCollection property="cardButtons" destination="bQG-Af-aTk" id="Gce-Cf-CGR"/>
+                        <outletCollection property="cardButtons" destination="wtO-Jc-9hm" id="lDt-Jp-DHT"/>
+                        <outletCollection property="cardButtons" destination="ZSL-S5-6lK" id="k2M-3w-Zh5"/>
+                        <outletCollection property="cardButtons" destination="94a-9l-Mkf" id="HVj-eJ-ByX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLU-UX-eqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -823,6 +852,9 @@
         </class>
         <class className="SetViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetViewController.h"/>
+            <relationships>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
