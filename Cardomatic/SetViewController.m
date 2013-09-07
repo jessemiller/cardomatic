@@ -35,7 +35,7 @@
 }
 
 - (CardMatchingGame *)game {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[SetDeck alloc] init]];
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[SetDeck alloc] init] usingMatcher:[[PlayingCardMatcher alloc] init]];
     return _game;
 }
 

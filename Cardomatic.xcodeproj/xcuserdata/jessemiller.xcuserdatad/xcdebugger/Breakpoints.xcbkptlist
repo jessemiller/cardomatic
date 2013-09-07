@@ -33,19 +33,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Cardomatic/Model/CardMatchingGame.m"
-         timestampString = "399664725.340248"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-flipCardAtIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Cardomatic/Model/SetCard.m"
          timestampString = "400267598.252031"
          startingColumnNumber = "9223372036854775807"
@@ -66,6 +53,19 @@
          startingLineNumber = "45"
          endingLineNumber = "45"
          landmarkName = "-updateUI"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Cardomatic/Model/CardMatchingGame.m"
+         timestampString = "400275259.332614"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-flipCardAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -7,26 +7,30 @@
 //
 
 #import "CardMatchingGame.h"
+#import "PlayingCardMatcher.h"
 
 @interface CardMatchingGame()
 @property (strong, nonatomic) NSMutableArray *cards;
 @property (nonatomic) int score;
 @property (strong, nonatomic) NSString *lastStatus;
+@property (strong, nonatomic) PlayingCardMatcher *matcher;
 @end
 
 @implementation CardMatchingGame
 
-- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck {
+- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck usingMatcher:(PlayingCardMatcher *)matcher {
     self = [super init];
     
     if (self) {
         for (int i = 0; i < cardCount; i++) {
             self.cards[i] = [deck drawRandomCard];
         }
+        self.matcher = matcher;
     }
     
     return self;
 }
+
 
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
@@ -39,20 +43,22 @@
     if (!card.unplayable) {
         if (!card.faceUp) {
             self.lastStatus = [NSString stringWithFormat:@"You flipped a %@", card.contents];
-            for (Card *otherCard in self.cards) {
-                if (otherCard.faceUp && !otherCard.unplayable) {
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
+            int matchScore = [self.matcher matchCard:card inCards:self.cards];
+            if (self.matcher.consideredAMove) {
+                if (matchScore) {
+                    int scoreAddition = matchScore * MATCH_BONUS;
+                    self.score += scoreAddition;
+                    for (Card *otherCard in self.matcher.otherCardsInPlay) {
                         otherCard.unplayable = true;
-                        card.unplayable = true;
-                        int scoreAddition = matchScore * MATCH_BONUS;
-                        self.score += scoreAddition;
                         self.lastStatus = [NSString stringWithFormat:@"You matched %@ and %@ for %d points", card.contents, otherCard.contents, scoreAddition];
-                    } else {
+                    }
+                    card.unplayable = true;
+                } else {
+                    for (Card *otherCard in self.matcher.otherCardsInPlay) {
                         otherCard.faceUp = false;
-                        self.score -= MISMATCH_PENALTY;
                         self.lastStatus = [NSString stringWithFormat:@"%@ and %@ don't match. %d point penalty.", card.contents, otherCard.contents, MISMATCH_PENALTY];
                     }
+                    self.score -= MISMATCH_PENALTY;
                 }
             }
             self.score -= FLIP_COST;
