@@ -24,6 +24,7 @@
 		057FF24617BB2E5F00054868 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 057FF24417BB2E5F00054868 /* MainStoryboard.storyboard */; };
 		057FF24917BB2E5F00054868 /* CardomaticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057FF24817BB2E5F00054868 /* CardomaticViewController.m */; };
 		05F9F38317D80812003179A0 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9F38217D80812003179A0 /* SetViewController.m */; };
+		05F9F38617D80C1B003179A0 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9F38517D80C1B003179A0 /* SetCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		057FF24817BB2E5F00054868 /* CardomaticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardomaticViewController.m; sourceTree = "<group>"; };
 		05F9F38117D80812003179A0 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		05F9F38217D80812003179A0 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		05F9F38417D80C1B003179A0 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		05F9F38517D80C1B003179A0 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 			children = (
 				0533BD2E17D24142009F1219 /* CardMatchingGame.h */,
 				0533BD2F17D24142009F1219 /* CardMatchingGame.m */,
+				05F9F38417D80C1B003179A0 /* SetCard.h */,
+				05F9F38517D80C1B003179A0 /* SetCard.m */,
 				051C778D17CAB95D009C5E7C /* Deck.h */,
 				051C778E17CAB95D009C5E7C /* Deck.m */,
 				051C778917CAB885009C5E7C /* Card.h */,
@@ -221,6 +226,7 @@
 				051C779517CAC925009C5E7C /* PlayingCardDeck.m in Sources */,
 				0533BD3017D24142009F1219 /* CardMatchingGame.m in Sources */,
 				05F9F38317D80812003179A0 /* SetViewController.m in Sources */,
+				05F9F38617D80C1B003179A0 /* SetCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
