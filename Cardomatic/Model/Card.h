@@ -10,7 +10,7 @@
 
 @interface Card : NSObject
 
-@property (nonatomic, strong) NSString *contents;
+@property (nonatomic, strong) NSAttributedString *contents;
 @property (nonatomic) BOOL faceUp;
 @property (nonatomic) BOOL unplayable;
 

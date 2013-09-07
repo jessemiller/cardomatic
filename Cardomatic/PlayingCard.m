@@ -25,8 +25,8 @@
     return score;
 }
 
-- (NSString *)contents {
-    return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
+- (NSAttributedString *)contents {
+    return [[NSAttributedString alloc] initWithString:[[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit]];
 }
 
 - (void)setSuit:(NSString *)suit {
