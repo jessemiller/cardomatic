@@ -15,6 +15,8 @@
 @property (nonatomic) NSUInteger number;
 @property (nonatomic) NSString *shading;
 
+- (NSAttributedString *)contents;
+
 + (NSArray *)validShapes;
 + (NSArray *)validColors;
 + (NSArray *)validShading;
