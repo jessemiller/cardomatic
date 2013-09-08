@@ -9,11 +9,14 @@
 #import "SetViewController.h"
 #import "CardMatchingGame.h"
 #import "SetDeck.h"
+#import "SetCardMatcher.h"
 
 @interface SetViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -35,7 +38,7 @@
 }
 
 - (CardMatchingGame *)game {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[SetDeck alloc] init] usingMatcher:[[PlayingCardMatcher alloc] init]];
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[SetDeck alloc] init] usingMatcher:[[SetCardMatcher alloc] init]];
     return _game;
 }
 
@@ -47,14 +50,14 @@
         [cardButton setAttributedTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
         cardButton.selected = card.faceUp;
         if (card.faceUp) {
-            [cardButton setBackgroundColor: [UIColor yellowColor]];
+            cardButton.backgroundColor = [UIColor blackColor];
         } else {
-            [cardButton setBackgroundColor: [UIColor whiteColor]];
+            cardButton.backgroundColor = [UIColor whiteColor];
         }
         cardButton.enabled = !card.unplayable;
         cardButton.alpha = card.unplayable ? 0.3 : 1.0;
-        //self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-        //self.statusLabel.text = self.game.lastStatus;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+        self.statusLabel.attributedText = self.game.lastStatus;
     }
 }
 

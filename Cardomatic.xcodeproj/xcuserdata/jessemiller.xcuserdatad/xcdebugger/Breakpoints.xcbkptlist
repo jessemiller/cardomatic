@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Cardomatic/Model/SetCard.m"
-         timestampString = "400267598.252031"
+         timestampString = "400348379.055861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "23"
-         endingLineNumber = "23"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-contents"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,25 +47,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Cardomatic/SetViewController.m"
-         timestampString = "400269349.590508"
+         timestampString = "400348963.71999"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-updateUI"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Cardomatic/Model/SetCard.m"
+         timestampString = "400348431.859171"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-match:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Cardomatic/Model/SetCardMatcher.m"
+         timestampString = "400348536.919063"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-matchCard:inCards:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Cardomatic/Model/CardMatchingGame.m"
-         timestampString = "400275259.332614"
+         timestampString = "400350947.92486"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
-         landmarkName = "-flipCardAtIndex:"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
+         landmarkName = "-createMatchedStringFor:andCard:withScore:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

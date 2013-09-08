@@ -18,6 +18,6 @@
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) int score;
-@property (strong, nonatomic, readonly) NSString *lastStatus;
+@property (strong, nonatomic, readonly) NSAttributedString *lastStatus;
 
 @end

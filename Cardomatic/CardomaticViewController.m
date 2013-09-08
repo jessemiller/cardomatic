@@ -51,7 +51,7 @@
         cardButton.enabled = !card.unplayable;
         cardButton.alpha = card.unplayable ? 0.3 : 1.0;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-        self.statusLabel.text = self.game.lastStatus;
+        self.statusLabel.attributedText = self.game.lastStatus;
     }    
 }
 

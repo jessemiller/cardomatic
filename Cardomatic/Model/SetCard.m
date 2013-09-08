@@ -10,6 +10,29 @@
 
 @implementation SetCard
 
+- (int)match:(NSArray *)otherCards {
+    int score = 0;
+    
+    if (otherCards.count == 2) {
+        SetCard *firstCard = otherCards[0];
+        SetCard *secondCard = otherCards[1];
+        
+        if ((((self.number == firstCard.number) && (self.number == secondCard.number)) ||
+             ((self.number != firstCard.number) && (self.number != secondCard.number) && (firstCard.number != secondCard.number))) &&
+            (([self.shape isEqual:firstCard.shape] && [self.shape isEqual:secondCard.shape]) ||
+             (![self.shape isEqual:firstCard.shape] && ![self.shape isEqual:secondCard.shape] && ![firstCard.shape isEqual:secondCard.shape])) &&
+            (([self.color isEqual:firstCard.color] && [self.color isEqual:secondCard.color]) ||
+             (![self.color isEqual:firstCard.color] && ![self.color isEqual:secondCard.color] && ![firstCard.color isEqual:secondCard.color])) &&
+            (([self.shading isEqual:firstCard.shading] && [self.shading isEqual:secondCard.shading]) ||
+             (![self.shading isEqual:firstCard.shading] && ![self.shading isEqual:secondCard.shading] && ![firstCard.shading isEqual:secondCard.shading])))
+        {
+            score = 2;
+        }
+    }
+    
+    return score;
+}
+
 - (NSAttributedString *)contents {
     NSDictionary *cardAttributes = nil;
     if ([self.shading isEqual: @"solid"]) {

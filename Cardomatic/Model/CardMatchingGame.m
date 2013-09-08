@@ -12,7 +12,7 @@
 @interface CardMatchingGame()
 @property (strong, nonatomic) NSMutableArray *cards;
 @property (nonatomic) int score;
-@property (strong, nonatomic) NSString *lastStatus;
+@property (strong, nonatomic) NSAttributedString *lastStatus;
 @property (strong, nonatomic) PlayingCardMatcher *matcher;
 @end
 
@@ -42,7 +42,7 @@
     self.lastStatus = nil;
     if (!card.unplayable) {
         if (!card.faceUp) {
-            self.lastStatus = [NSString stringWithFormat:@"You flipped a %@", card.contents];
+            self.lastStatus = [self createFlipStringFor:card];
             int matchScore = [self.matcher matchCard:card inCards:self.cards];
             if (self.matcher.consideredAMove) {
                 if (matchScore) {
@@ -50,14 +50,14 @@
                     self.score += scoreAddition;
                     for (Card *otherCard in self.matcher.otherCardsInPlay) {
                         otherCard.unplayable = true;
-                        self.lastStatus = [NSString stringWithFormat:@"You matched %@ and %@ for %d points", card.contents, otherCard.contents, scoreAddition];
                     }
                     card.unplayable = true;
+                    self.lastStatus = [self createMatchedStringFor:self.matcher.otherCardsInPlay andCard:card withScore:scoreAddition];
                 } else {
                     for (Card *otherCard in self.matcher.otherCardsInPlay) {
                         otherCard.faceUp = false;
-                        self.lastStatus = [NSString stringWithFormat:@"%@ and %@ don't match. %d point penalty.", card.contents, otherCard.contents, MISMATCH_PENALTY];
                     }
+                    self.lastStatus = [self createMismatchedStringFor:self.matcher.otherCardsInPlay andCard:card withScore:MISMATCH_PENALTY];
                     self.score -= MISMATCH_PENALTY;
                 }
             }
@@ -65,6 +65,47 @@
         }
         card.faceUp = !card.faceUp;
     }
+}
+
+- (NSAttributedString *)createFlipStringFor:(Card *)card {
+    NSMutableAttributedString *turnStatus = [[NSMutableAttributedString alloc] initWithString:@"You flipped a "];
+    [turnStatus appendAttributedString:card.contents];
+    return turnStatus;
+}
+
+- (NSAttributedString *)createMatchedStringFor:(NSArray *)otherCardsInPlay andCard:(Card *)card withScore:(int)score {
+    NSMutableAttributedString *turnStatus = nil;
+    if (otherCardsInPlay.count == 1) {
+        Card *otherCard = [otherCardsInPlay lastObject];
+        turnStatus = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"You matched %@ and %@ for %d points", card.contents.string, otherCard.contents.string,  score]];
+    } else {
+        turnStatus = [[NSMutableAttributedString alloc] initWithString:@"You matched "];
+        [turnStatus appendAttributedString:card.contents];
+        for (Card *otherCard in otherCardsInPlay) {
+            [turnStatus appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+            [turnStatus appendAttributedString:otherCard.contents];
+        }
+        [turnStatus appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %d points", score]]];
+    }
+    
+    return turnStatus;
+}
+
+- (NSAttributedString *)createMismatchedStringFor:(NSArray *)otherCardsInPlay andCard:(Card *)card withScore:(int)score {
+    NSMutableAttributedString *turnStatus = nil;
+    if (otherCardsInPlay.count == 1) {
+        Card *otherCard = [otherCardsInPlay lastObject];
+        turnStatus = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ and %@ don't match. %d point penalty.", card.contents.string, otherCard.contents.string,  score]];
+    } else {
+        turnStatus = [[NSMutableAttributedString alloc] initWithAttributedString:card.contents];
+        for (Card *otherCard in otherCardsInPlay) {
+            [turnStatus appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+            [turnStatus appendAttributedString:otherCard.contents];
+        }
+        [turnStatus appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" don't match. %d point penalty.", score]]];
+    }
+    
+    return turnStatus;
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index {
