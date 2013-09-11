@@ -13,7 +13,7 @@
 
 @interface CardMatchingGame : NSObject
 
-- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck usingMatcher:(PlayingCardMatcher *)matcher;
+- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck usingMatcher:(id <CardMatcher>)matcher;
 - (void)flipCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 

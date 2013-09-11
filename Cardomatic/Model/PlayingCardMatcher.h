@@ -9,7 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Card.h"
 
-@interface PlayingCardMatcher : NSObject
+@protocol CardMatcher
+
+@property (nonatomic, strong) NSMutableArray *otherCardsInPlay;
+@property BOOL consideredAMove;
+
+- (NSInteger)matchCard:(Card *)card inCards:(NSArray *)currentCards;
+
+@end
+
+@interface PlayingCardMatcher : NSObject <CardMatcher>
 
 @property (nonatomic, strong) NSMutableArray *otherCardsInPlay;
 @property BOOL consideredAMove;

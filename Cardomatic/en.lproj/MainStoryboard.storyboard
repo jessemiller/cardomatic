@@ -26,7 +26,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="S0F-4L-SUD"/>
+                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="2XT-3t-VIo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z55-jo-uof">
@@ -42,7 +42,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="iPR-RS-ATy"/>
+                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="RGd-k4-VfS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rth-q8-ZJn">
@@ -89,9 +89,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="XrO-Vz-l0m"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuz-ys-t3J">
                                 <constraints>
@@ -364,9 +361,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="flipCard:" destination="jKJ-eY-PBd" eventType="touchUpInside" id="nRW-EQ-fzD"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-LW-Fwc">
                                 <constraints>
@@ -537,32 +531,32 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="8is-Ra-WMP"/>
                     <connections>
-                        <outlet property="scoreLabel" destination="7kx-E9-xlt" id="RBW-MI-yqg"/>
-                        <outlet property="statusLabel" destination="1eZ-Cv-W2b" id="qXN-ZZ-vhW"/>
-                        <outletCollection property="cardButtons" destination="r2s-5R-Z3B" id="82B-i3-E69"/>
-                        <outletCollection property="cardButtons" destination="z55-jo-uof" id="d43-Ct-9QZ"/>
-                        <outletCollection property="cardButtons" destination="rth-q8-ZJn" id="9FK-h3-5x8"/>
-                        <outletCollection property="cardButtons" destination="9s1-pW-aVG" id="m1V-G6-LwI"/>
-                        <outletCollection property="cardButtons" destination="0SO-as-U7U" id="J0D-mq-9Tl"/>
-                        <outletCollection property="cardButtons" destination="wuz-ys-t3J" id="qNu-Go-o3n"/>
-                        <outletCollection property="cardButtons" destination="OrY-xt-b27" id="FnH-cV-moh"/>
-                        <outletCollection property="cardButtons" destination="AFe-o1-2Sp" id="smi-Ge-ial"/>
-                        <outletCollection property="cardButtons" destination="32d-ZD-GEI" id="cOE-10-qlE"/>
-                        <outletCollection property="cardButtons" destination="ZFn-4p-KcU" id="9sX-aP-sx2"/>
-                        <outletCollection property="cardButtons" destination="0gW-2s-g05" id="HNW-c3-Q5c"/>
-                        <outletCollection property="cardButtons" destination="xDH-Ul-Czm" id="Hrf-U9-2gF"/>
-                        <outletCollection property="cardButtons" destination="k7Q-Nm-Vpe" id="3Rf-gc-xWR"/>
-                        <outletCollection property="cardButtons" destination="Taf-S8-BDB" id="iil-dq-3a7"/>
-                        <outletCollection property="cardButtons" destination="r8C-fe-pw8" id="PSH-fX-ePa"/>
-                        <outletCollection property="cardButtons" destination="oNU-YK-FkZ" id="VGA-K2-awH"/>
-                        <outletCollection property="cardButtons" destination="01G-qH-czw" id="mSk-ka-aU3"/>
-                        <outletCollection property="cardButtons" destination="QS7-vH-2uO" id="RcK-vy-BMQ"/>
-                        <outletCollection property="cardButtons" destination="Wka-sP-Dwn" id="FPO-A7-eDm"/>
-                        <outletCollection property="cardButtons" destination="foD-jR-rmy" id="90R-kq-2tn"/>
-                        <outletCollection property="cardButtons" destination="bQG-Af-aTk" id="Gce-Cf-CGR"/>
-                        <outletCollection property="cardButtons" destination="wtO-Jc-9hm" id="lDt-Jp-DHT"/>
-                        <outletCollection property="cardButtons" destination="ZSL-S5-6lK" id="k2M-3w-Zh5"/>
-                        <outletCollection property="cardButtons" destination="94a-9l-Mkf" id="HVj-eJ-ByX"/>
+                        <outlet property="scoreLabel" destination="7kx-E9-xlt" id="mtc-x7-UVf"/>
+                        <outlet property="statusLabel" destination="1eZ-Cv-W2b" id="4Iy-up-7af"/>
+                        <outletCollection property="cards" destination="r2s-5R-Z3B" id="Hwa-dA-Eew"/>
+                        <outletCollection property="cards" destination="z55-jo-uof" id="omo-8A-vWm"/>
+                        <outletCollection property="cards" destination="rth-q8-ZJn" id="CfA-Vh-L5X"/>
+                        <outletCollection property="cards" destination="9s1-pW-aVG" id="yFP-yF-jsy"/>
+                        <outletCollection property="cards" destination="0SO-as-U7U" id="vkV-9U-rLw"/>
+                        <outletCollection property="cards" destination="wuz-ys-t3J" id="8vz-De-IO5"/>
+                        <outletCollection property="cards" destination="OrY-xt-b27" id="P0k-pJ-7HX"/>
+                        <outletCollection property="cards" destination="AFe-o1-2Sp" id="TX3-UF-7PE"/>
+                        <outletCollection property="cards" destination="32d-ZD-GEI" id="5Z8-y9-Dff"/>
+                        <outletCollection property="cards" destination="ZFn-4p-KcU" id="3NM-Z3-LxN"/>
+                        <outletCollection property="cards" destination="0gW-2s-g05" id="tu6-Vd-1Im"/>
+                        <outletCollection property="cards" destination="xDH-Ul-Czm" id="9MV-tD-h0D"/>
+                        <outletCollection property="cards" destination="94a-9l-Mkf" id="NhG-DT-O92"/>
+                        <outletCollection property="cards" destination="ZSL-S5-6lK" id="T8g-3w-b5Y"/>
+                        <outletCollection property="cards" destination="wtO-Jc-9hm" id="htc-AM-aUi"/>
+                        <outletCollection property="cards" destination="bQG-Af-aTk" id="cCX-Ue-clV"/>
+                        <outletCollection property="cards" destination="foD-jR-rmy" id="ve2-fV-dLC"/>
+                        <outletCollection property="cards" destination="Wka-sP-Dwn" id="JiY-nZ-ri6"/>
+                        <outletCollection property="cards" destination="QS7-vH-2uO" id="yYi-CM-dbY"/>
+                        <outletCollection property="cards" destination="01G-qH-czw" id="6aq-xD-wyZ"/>
+                        <outletCollection property="cards" destination="oNU-YK-FkZ" id="A2E-G7-pBr"/>
+                        <outletCollection property="cards" destination="r8C-fe-pw8" id="qkZ-18-92S"/>
+                        <outletCollection property="cards" destination="Taf-S8-BDB" id="wbi-0X-nOa"/>
+                        <outletCollection property="cards" destination="k7Q-Nm-Vpe" id="BzU-s2-QP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLU-UX-eqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,10 +582,10 @@
             </objects>
             <point key="canvasLocation" x="-550" y="181"/>
         </scene>
-        <!--Cardomatic View Controller - Match-->
+        <!--Playing Card View Controller - Match-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="CardomaticViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="PlayingCardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -988,14 +982,11 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="SetViewController" superclassName="UIViewController">
+        <class className="PlayingCardViewController" superclassName="CardomaticViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayingCardViewController.h"/>
+        </class>
+        <class className="SetViewController" superclassName="CardomaticViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck.h"
+#import "PlayingCardMatcher.h"
+#import "Card.h"
 
 @interface CardomaticViewController : UIViewController
+
+- (Deck *)getDeck;
+- (id <CardMatcher>)getMatcher;
+- (void)updateCardButton:(UIButton *)cardButton with:(Card *)card;
 
 @end

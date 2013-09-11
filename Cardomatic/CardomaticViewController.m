@@ -8,7 +8,6 @@
 
 #import "CardomaticViewController.h"
 #import "Deck.h"
-#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
 
 @interface CardomaticViewController ()
@@ -22,6 +21,20 @@
 
 @implementation CardomaticViewController
 
+- (Deck *)getDeck {
+    // abstract
+    return nil;
+}
+
+- (id <CardMatcher>)getMatcher {
+    // abstract
+    return nil;
+}
+
+- (void)updateCardButton:(UIButton *)cardButton with:(Card *)card {
+    // abstract
+}
+
 - (IBAction)flipCard:(UIButton *)sender {
     [self.game flipCardAtIndex:[self.cards indexOfObject:sender]];
     [self updateUI];
@@ -33,7 +46,7 @@
 }
 
 - (CardMatchingGame *)game {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cards.count usingDeck:[[PlayingCardDeck alloc] init] usingMatcher:[[PlayingCardMatcher alloc] init]];
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cards.count usingDeck:[self getDeck] usingMatcher:[self getMatcher]];
     return _game;
 }
 
@@ -44,15 +57,11 @@
 
 - (void)updateUI {
     for (UIButton *cardButton in self.cards) {
-        Card *card = [self.game cardAtIndex:[self.cards indexOfObject:cardButton]];
-        [cardButton setAttributedTitle:card.contents forState:UIControlStateSelected];
-        [cardButton setAttributedTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-        cardButton.selected = card.faceUp;
-        cardButton.enabled = !card.unplayable;
-        cardButton.alpha = card.unplayable ? 0.3 : 1.0;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
         self.statusLabel.attributedText = self.game.lastStatus;
-    }    
+        Card *card = [self.game cardAtIndex:[self.cards indexOfObject:cardButton]];
+        [self updateCardButton:cardButton with:card];
+    }
 }
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardomaticViewController.h"
 
-@interface SetViewController : UIViewController
+@interface SetViewController : CardomaticViewController
 
 @end
