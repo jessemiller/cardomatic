@@ -8,6 +8,7 @@
 
 #import "PlayingCardViewController.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCardCollectionViewCell.h"
 
 @interface PlayingCardViewController ()
 
@@ -21,6 +22,13 @@
 
 - (id <CardMatcher>)getMatcher {
     return [[PlayingCardMatcher alloc] init];
+}
+
+- (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card {
+    if ([cell isKindOfClass:[PlayingCardCollectionViewCell class]]) {
+        PlayingCardCollectionViewCell *pccvc = (PlayingCardCollectionViewCell *)cell;
+        [self updateCardButton:pccvc.cardButton with:card];
+    }
 }
 
 - (void)updateCardButton:(UIButton *)cardButton with:(Card *)card {

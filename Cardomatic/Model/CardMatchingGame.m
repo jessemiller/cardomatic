@@ -108,6 +108,10 @@
     return turnStatus;
 }
 
+- (NSUInteger)cardsInPlay {
+    return [self.cards count];
+}
+
 - (Card *)cardAtIndex:(NSUInteger)index {
     return (index < self.cards.count) ? self.cards[index] : nil;
 }

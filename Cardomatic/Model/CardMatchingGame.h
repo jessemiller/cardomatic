@@ -16,6 +16,7 @@
 - (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck usingMatcher:(id <CardMatcher>)matcher;
 - (void)flipCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
+- (NSUInteger)cardsInPlay;
 
 @property (nonatomic, readonly) int score;
 @property (strong, nonatomic, readonly) NSAttributedString *lastStatus;

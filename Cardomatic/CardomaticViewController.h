@@ -15,6 +15,6 @@
 
 - (Deck *)getDeck;
 - (id <CardMatcher>)getMatcher;
-- (void)updateCardButton:(UIButton *)cardButton with:(Card *)card;
+- (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card;
 
 @end
