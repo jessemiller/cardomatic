@@ -43,9 +43,15 @@
     return nil;
 }
 
+- (NSUInteger)getStartingCardCount {
+    // abstract
+    return 0;
+}
+
 - (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card {
     // abstract
 }
+
 - (IBAction)flipCard:(UITapGestureRecognizer *)gesture {
     CGPoint tapLocation = [gesture locationInView:self.cardCollectionView];
     NSIndexPath *indexPath = [self.cardCollectionView indexPathForItemAtPoint:tapLocation];
@@ -57,11 +63,20 @@
 
 - (IBAction)deal {
     self.game = nil;
-    [self updateUI];
+    [self.cardCollectionView reloadData];
+}
+
+#define CARDS_TO_ADD 3
+- (IBAction)dealAdditionalCards {
+    int finalIndex = [self.game cardsInPlay];
+    [self.game addCards:CARDS_TO_ADD];
+    [self.cardCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:finalIndex inSection:0],
+     [NSIndexPath indexPathForRow:finalIndex+1 inSection:0], [NSIndexPath indexPathForRow:finalIndex+2 inSection:0]]];
+    [self.cardCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:finalIndex+2 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:true];
 }
 
 - (CardMatchingGame *)game {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:20 usingDeck:[self getDeck] usingMatcher:[self getMatcher]];
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self getStartingCardCount] usingDeck:[self getDeck] usingMatcher:[self getMatcher]];
     return _game;
 }
 
@@ -71,7 +86,12 @@
     for (UICollectionViewCell *cell in [self.cardCollectionView visibleCells]) {
         NSIndexPath *indexPath = [self.cardCollectionView indexPathForCell:cell];
         Card *card = [self.game cardAtIndex:indexPath.item];
-        [self updateCell:cell usingCard:card];
+        if (card.unplayable) {
+            [self.game removeCardAtIndex:indexPath.item];
+            [self.cardCollectionView deleteItemsAtIndexPaths:@[indexPath]];
+        } else {
+            [self updateCell:cell usingCard:card];
+        }
     }
 }
 

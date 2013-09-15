@@ -28,6 +28,10 @@
     return [[SetCardMatcher alloc] init];
 }
 
+- (NSUInteger)getStartingCardCount {
+    return 12;
+}
+
 - (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card {
     if ([cell isKindOfClass:[SetCardCollectionViewCell class]]) {
         SetCardCollectionViewCell *pccvc = (SetCardCollectionViewCell *)cell;

@@ -14,6 +14,7 @@
 @property (nonatomic) int score;
 @property (strong, nonatomic) NSAttributedString *lastStatus;
 @property (strong, nonatomic) PlayingCardMatcher *matcher;
+@property (strong, nonatomic) Deck *deck;
 @end
 
 @implementation CardMatchingGame
@@ -26,6 +27,7 @@
             self.cards[i] = [deck drawRandomCard];
         }
         self.matcher = matcher;
+        self.deck = deck;
     }
     
     return self;
@@ -114,6 +116,16 @@
 
 - (Card *)cardAtIndex:(NSUInteger)index {
     return (index < self.cards.count) ? self.cards[index] : nil;
+}
+
+- (void)removeCardAtIndex:(NSUInteger)index {
+    [self.cards removeObjectAtIndex:index];
+}
+
+- (void)addCards:(NSUInteger)cardCount {
+    for (int i = 1; i <= cardCount; i++) {
+        [self.cards addObject:[self.deck drawRandomCard]];
+    }
 }
 
 - (NSMutableArray *)cards {

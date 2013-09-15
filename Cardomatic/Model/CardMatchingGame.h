@@ -16,6 +16,8 @@
 - (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck usingMatcher:(id <CardMatcher>)matcher;
 - (void)flipCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
+- (void)removeCardAtIndex:(NSUInteger)index;
+- (void)addCards:(NSUInteger)cardCount;
 - (NSUInteger)cardsInPlay;
 
 @property (nonatomic, readonly) int score;

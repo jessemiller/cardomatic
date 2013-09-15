@@ -12,9 +12,9 @@
 
 #define CARD_CORNER_RADIUS 12.0
 #define OVAL_CORNER_RADIUS 10.0
-#define SHAPE_WIDTH 15.0
+#define SHAPE_WIDTH 8.0
 #define SHAPE_HEIGHT 30.0
-#define SHAPE_SPACING 5.0
+#define SHAPE_SPACING 2.0
 - (void)drawRect:(CGRect)rect
 {
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:CARD_CORNER_RADIUS];

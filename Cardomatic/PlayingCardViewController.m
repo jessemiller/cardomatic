@@ -24,6 +24,10 @@
     return [[PlayingCardMatcher alloc] init];
 }
 
+- (NSUInteger)getStartingCardCount {
+    return 22;
+}
+
 - (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card {
     if ([cell isKindOfClass:[PlayingCardCollectionViewCell class]]) {
         PlayingCardCollectionViewCell *pccvc = (PlayingCardCollectionViewCell *)cell;
