@@ -10,7 +10,9 @@
 #import "CardMatchingGame.h"
 #import "SetDeck.h"
 #import "SetCardMatcher.h"
-#import "PlayingCardCollectionViewCell.h"
+#import "SetCardCollectionViewCell.h"
+#import "SetCardView.h"
+#import "SetCard.h"
 
 @interface SetViewController ()
 
@@ -27,24 +29,20 @@
 }
 
 - (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card {
-    if ([cell isKindOfClass:[PlayingCardCollectionViewCell class]]) {
-        PlayingCardCollectionViewCell *pccvc = (PlayingCardCollectionViewCell *)cell;
-        [self updateCardButton:pccvc.cardButton with:card];
+    if ([cell isKindOfClass:[SetCardCollectionViewCell class]]) {
+        SetCardCollectionViewCell *pccvc = (SetCardCollectionViewCell *)cell;
+        [self updateSetCardView:pccvc.setCardView with:card];
     }
 }
 
-- (void)updateCardButton:(UIButton *)cardButton with:(Card *)card {
-    [cardButton setAttributedTitle:card.contents forState:UIControlStateNormal];
-    [cardButton setAttributedTitle:card.contents forState:UIControlStateSelected];
-    [cardButton setAttributedTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-    cardButton.selected = card.faceUp;
-    if (card.faceUp) {
-        cardButton.backgroundColor = [UIColor blackColor];
-    } else {
-        cardButton.backgroundColor = [UIColor whiteColor];
-    }
-    cardButton.enabled = !card.unplayable;
-    cardButton.alpha = card.unplayable ? 0.3 : 1.0;
+- (void)updateSetCardView:(SetCardView *)setCardView with:(Card *)card {
+    SetCard *setCard = (SetCard *)card;
+    setCardView.color = setCard.color;
+    setCardView.shading = setCard.shading;
+    setCardView.shape = setCard.shape;
+    setCardView.number = setCard.number;
+    setCardView.faceUp = setCard.faceUp;
+    setCardView.alpha = setCard.unplayable ? 0.3 : 1.0;
 }
 
 @end

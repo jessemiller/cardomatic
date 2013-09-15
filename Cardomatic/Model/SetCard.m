@@ -62,7 +62,7 @@
 }
 
 + (NSArray *)validShapes {
-    return @[@"●", @"■", @"▲"];
+    return @[@"oval", @"squiggle", @"diamond"];
 }
 
 + (NSArray *)validColors {
